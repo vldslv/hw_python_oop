@@ -63,13 +63,11 @@ class CashCalculator(Calculator):
     def get_today_cash_remained(self, currency):
 
         converted_remaining_amount = round(
-            (self.get_today_stats() - self.limit) / self.currency_list[currency][0], 2
-        )
+            (self.get_today_stats() - self.limit) / self.currency_list[currency][0], 2)
 
         if self.get_today_stats() < self.limit:
             converted_remaining_amount = round(
-                self.remaining_amount / self.currency_list[currency][0], 2
-            )
+                self.remaining_amount / self.currency_list[currency][0], 2)
             return f'На сегодня осталось {converted_remaining_amount} {self.currency_list[currency][1]}'
         if self.get_today_stats() == self.limit:
             return f'Денег нет, держись'
